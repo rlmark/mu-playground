@@ -2,19 +2,10 @@ package protocol
 
 import monix.reactive.Observable
 import mu.rpc.protocol._
-import scala.languageFeature.experimental.macros
-import scala.reflect.macros.Context
-import scala.language.experimental.macros
-import scala.annotation.StaticAnnotation
-import scala.annotation.compileTimeOnly
 
 @message
 case class Person(name: String, id: Int, has_ponycoptor: Boolean)
 
-//@option("java_multiple_files", true)
-//@option("java_outer_classname", "Quickstart")
-//@outputName("Greeter")
-//@outputPackage("quickstart")
 object greeter {
   @message
   case class HelloRequest(name: String)
@@ -22,7 +13,6 @@ object greeter {
   @message
   case class HelloResponse(message: String)
 
-  // Could also add Gzip here if I needed compression
   @service(Protobuf)
   trait Greeter[F[_]] {
     // unary

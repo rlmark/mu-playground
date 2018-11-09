@@ -1,6 +1,7 @@
 package service
 
 import common.CommonRuntime
+import mu.rpc.server._
 import mu.rpc.server.handlers._
 import mu.rpc.server.implicits._
 import protocol.greeter._
