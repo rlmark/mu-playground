@@ -14,7 +14,7 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     val grpcConfigs: List[GrpcConfig] = List(
-      // commenting this back in doesn't work either
+      // commenting this back in fails with a `value Greeter not found` error
       // AddService(Greeter.bindService[IO])
     )
 
