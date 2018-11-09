@@ -5,9 +5,11 @@ version := "0.1"
 scalaVersion := "2.12.7"
 
 resolvers += Resolver.sonatypeRepo("releases")
-resolvers += "staging" at "https://oss.sonatype.org/content/repositories/staging/"
 
-addCompilerPlugin("org.scalamacros" % "paradise_2.12.7" % "2.1.1"  cross CrossVersion.patch)
+// Intellij seems to like this version more, but sbt still can't find the plugin
+// addCompilerPlugin("org.scalamacros" % "paradise_2.12.7" % "2.1.1"  cross CrossVersion.patch) 
+
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.patch)
 
 libraryDependencies := Seq(
   "org.typelevel"     %% "cats-effect"              % "1.0.0",
@@ -15,6 +17,7 @@ libraryDependencies := Seq(
   "io.higherkindness" %% "mu-rpc-server"            % "0.16.0",
   "io.higherkindness" %% "mu-rpc-client-core"       % "0.16.0",
   "io.higherkindness" %% "mu-rpc-client-netty"      % "0.16.0",
+  scalaVersion("org.scala-lang" % "scala-reflect" % _).value,
 )
 
 scalacOptions ++= Seq(
@@ -27,5 +30,6 @@ scalacOptions ++= Seq(
   "-language:experimental.macros",
   "-language:higherKinds",
   "-language:existentials",
-  "-language:postfixOps"
+  "-language:postfixOps",
+//  "-Xplugin-require:macroparadise", // Can't find the macroparadise plugin
 )

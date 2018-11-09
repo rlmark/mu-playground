@@ -6,13 +6,16 @@ import protocol.greeter
 import service.implicits._
 import mu.rpc.server._
 import mu.rpc.server.implicits._
+import scala.language.experimental.macros
+
 
 object Main {
 
   def main(args: Array[String]): Unit = {
 
     val grpcConfigs: List[GrpcConfig] = List(
-      AddService(greeter.Greeter.bindService[IO])
+      // commenting this back in doesn't work either
+      // AddService(Greeter.bindService[IO])
     )
 
     val runServer = GrpcServer.default[IO](8080, grpcConfigs).flatMap(GrpcServer.server[IO])
