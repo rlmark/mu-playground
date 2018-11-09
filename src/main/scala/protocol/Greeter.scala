@@ -32,4 +32,3 @@ object greeter {
     def bidirectionalHello(request: Observable[HelloRequest]): Observable[HelloResponse]
   }
 }
-

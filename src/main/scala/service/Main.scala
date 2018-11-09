@@ -3,7 +3,7 @@ package service
 import cats.effect.IO
 import mu.rpc.server.{AddService, GrpcConfig, GrpcServer}
 import service.implicits._
-import protocol.greeter
+import protocol.greeter._
 import mu.rpc.server._
 import mu.rpc.server.implicits._
 import scala.language.experimental.macros
