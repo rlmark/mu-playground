@@ -1,5 +1,7 @@
 package common
 
+import monix.execution.Scheduler
+
 trait CommonRuntime {
-implicit val scheduler = monix.execution.Scheduler.Implicits.global
+implicit val scheduler: Scheduler = monix.execution.Scheduler.Implicits.global
 }

@@ -3,14 +3,17 @@ name := "mu-playground"
 version := "0.1"
 
 scalaVersion := "2.12.7"
+val mu = "0.16.0"
+
 
 libraryDependencies := Seq(
   "org.typelevel"     %% "cats-effect"              % "1.0.0",
   "org.typelevel"     %% "cats-core"                % "1.4.0",
-  "io.higherkindness" %% "mu-rpc-server"            % "0.16.0",
-  "io.higherkindness" %% "mu-rpc-client-core"       % "0.16.0",
-  "io.higherkindness" %% "mu-rpc-client-netty"      % "0.16.0",
-  scalaVersion("org.scala-lang" % "scala-reflect" % _).value,
+  "io.higherkindness" %% "mu-rpc-server"            % mu,
+  "io.higherkindness" %% "mu-config"                % mu,
+  "io.higherkindness" %% "mu-rpc-client-core"       % mu,
+  "io.higherkindness" %% "mu-rpc-client-netty"      % mu,
+  "com.typesafe" % "config" % "1.3.2",
 )
 
 scalacOptions ++= Seq(
@@ -24,8 +27,8 @@ scalacOptions ++= Seq(
   "-language:higherKinds",
   "-language:existentials",
   "-language:postfixOps",
-  "-Xplugin-require:macroparadise", 
+  "-Xplugin-require:macroparadise",
 )
 
 resolvers += Resolver.sonatypeRepo("releases")
-addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
