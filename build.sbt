@@ -7,10 +7,10 @@ val mu = "0.16.0"
 
 
 libraryDependencies := Seq(
-  "org.typelevel"     %% "cats-effect"              % "1.0.0",
-  "org.typelevel"     %% "cats-core"                % "1.4.0",
+  // Binary incompatibility. Should this be talked about in docs? 
+  //"org.typelevel"     %% "cats-effect"              % "1.0.0",
+  //"org.typelevel"     %% "cats-core"                % "1.4.0",
   "io.higherkindness" %% "mu-rpc-server"            % mu,
-  "io.higherkindness" %% "mu-config"                % mu,
   "io.higherkindness" %% "mu-rpc-client-core"       % mu,
   "io.higherkindness" %% "mu-rpc-client-netty"      % mu,
   "com.typesafe" % "config" % "1.3.2",

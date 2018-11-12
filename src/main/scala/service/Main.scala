@@ -5,7 +5,6 @@ import mu.rpc.server.{AddService, GrpcConfig, GrpcServer}
 import service.implicits._
 import protocol.greeter._
 import mu.rpc.server._
-import mu.rpc.server.config.BuildServerFromConfig
 import mu.rpc.server.implicits._
 
 import scala.language.experimental.macros
@@ -18,10 +17,7 @@ object Main {
       AddService(Greeter.bindService[IO])
     )
 
-    val runServer = for {
-      server <- BuildServerFromConfig[IO]("rpc.server.port", grpcConfigs)
-      _      <- GrpcServer.server[IO](server)
-    } yield ()
-    runServer.unsafeRunSync()
+    val runServer2 = GrpcServer.default[IO](9090, grpcConfigs).flatMap(GrpcServer.server[IO])
+    runServer2.unsafeRunSync()
   }
 }
